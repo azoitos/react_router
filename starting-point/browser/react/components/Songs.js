@@ -3,8 +3,10 @@ import React from 'react';
 const Songs = (props) => {
 
   const songs = props.songs;
-
+  console.log(props.audioProps);
   return (
+    <div>
+    <h3>Songs</h3>
     <table className='table'>
       <thead>
         <tr>
@@ -19,7 +21,7 @@ const Songs = (props) => {
           songs && songs.map(song => (
             <tr key={song.id}>
               <td>
-                <button className="btn btn-default btn-xs">
+                <button onClick={() => props.audioProps.toggleOne(song, songs)} className="btn btn-default btn-xs">
                   <span className="glyphicon glyphicon-play"></span>
                 </button>
               </td>
@@ -33,6 +35,7 @@ const Songs = (props) => {
         }
       </tbody>
     </table>
+    </div>
   );
 }
 

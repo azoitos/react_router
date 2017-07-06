@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
@@ -7,6 +7,7 @@ import Player from './Player';
 import AllArtists from './AllArtists';
 import SingleArtist from './SingleArtist';
 import StatefulAlbums from './StatefulAlbums';
+import NotFound from './NotFound';
 
 export default class Main extends Component {
 
@@ -24,6 +25,7 @@ export default class Main extends Component {
           </div>
           <div className="col-xs-10">
             <div className="col-xs-10">
+              <Switch>
               <Route
                 exact path='/'
                 component={StatefulAlbums}
@@ -34,7 +36,7 @@ export default class Main extends Component {
               />
               <Route
                 path='/albums/:albumId'
-                component={SingleAlbum}
+                render={(routeProps) => <SingleAlbum audioProps={this.props} match={routeProps.match} />}
               />
               <Route
                 exact path='/artists'
@@ -42,8 +44,12 @@ export default class Main extends Component {
               />
               <Route
                 path='/artists/:artistId'
-                component={SingleArtist}
+                render={(routeProps) => <SingleArtist audioProps={this.props} match={routeProps.match}  />}
               />
+              <Route
+                component={NotFound}
+              />
+              </Switch>
             </div>
           </div>
           <Player />

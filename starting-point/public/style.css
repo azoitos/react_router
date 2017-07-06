@@ -8,6 +8,10 @@ body {
 #main {
   padding-left: 0; }
 
+li .wow {
+  color: red;
+}
+
 sidebar {
   position: fixed;
   left: 0;
