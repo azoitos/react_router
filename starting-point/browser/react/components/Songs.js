@@ -3,7 +3,7 @@ import React from 'react';
 const Songs = (props) => {
 
   const songs = props.songs;
-  console.log(props.audioProps);
+  // console.log(props.audioProps);
   return (
     <div>
     <h3>Songs</h3>

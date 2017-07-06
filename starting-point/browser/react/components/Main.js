@@ -52,7 +52,7 @@ export default class Main extends Component {
               </Switch>
             </div>
           </div>
-          <Player />
+          <Player audioProps={this.props}/>
         </div>
       </Router>
     );
